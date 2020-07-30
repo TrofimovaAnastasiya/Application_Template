@@ -1,6 +1,49 @@
-body {
-    background: $red;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: rgb(121, 174, 253);
+  padding-top: 10px;
 }
-.title {
-    @include text(80px, rgb(167, 60, 60));
+
+.header__logo {
+  img {
+    @include image();
+  }
+}
+
+.header__buttons {
+  display: inline-block;
+  .button {
+    @include text("Roboto", 15px, white, 400, uppercase);
+    @include button(rgb(0, 22, 219), rgb(74, 3, 238), rgb(74, 3, 238));
+  }
+}
+
+.header__nav-item {
+  display: inline-block;
+  position: relative;
+  &:hover {
+    .nav-item__dropdown {
+      display: block;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+}
+.nav-item__link {
+  display: inline-block;
+  margin: 10px;
+  @include text();
+  @include link(rgb(64, 65, 68), rgb(74, 3, 238), rgb(74, 3, 238));
+}
+.nav-item__dropdown {
+  display: none;
+  background-color: rgb(121, 174, 253);
+  width: 100px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+}
+.link-item {
+  @include dropdown();
 }

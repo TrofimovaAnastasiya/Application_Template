@@ -1,4 +1,78 @@
-@mixin text($size, $color) {
-    font-size: $size;
+// When adding cursor from file: cursor: url('path to cursor1'), url('path to cursor2'), ..., <keyword>
+@mixin text(
+  $font: "Roboto",
+  $size: 30px,
+  $color: rgb(0, 0, 0),
+  $weight: 400,
+  $text-transform: none //Remove all effects
+) {
+  font-size: $size;
+  color: $color;
+  font-family: $font;
+  font-weight: $weight;
+  font-style: normal; //normal | italic | oblique - Inclined
+  text-transform: $text-transform; //capitalize -Start With Uppercase | uppercase-ALL CAPITAL | lowercase-all lower case
+  line-height: 1;
+  word-spacing: normal;
+  text-decoration: none; //underline | overline | line-through | blink -Flashing text
+  text-align: justify;
+  letter-spacing: 0.5px;
+  user-select: none; //remove text selection
+  cursor: text; //http://htmlbook.ru/css/cursor
+}
+@mixin button(
+  $bgc1: #26a69a,
+  $bgc2: rgb(232, 95, 76),
+  $bgc3: rgb(152, 15, 0),
+  $padding: 10px,
+  $margin: 10px,
+  $border-radius: 2px
+) {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  border-radius: $border-radius;
+  background-color: $bgc1;
+  padding: $padding; //1- to all four sides | 2- 1.top and bottom and 2.left and right | 3- 1.top, 2.left and right and 3.bottom | 4- 1.top, 2.right, 3.bottom and 4.left
+  margin: $margin;
+  overflow: hidden; // auto | hidden - The content is clipped without scrolling| scroll -The content is clipped | visible -The content is not clipped| inherit
+  user-select: none;
+  vertical-align: middle; // baseline|bottom|middle|sub|super|text-bottom|text-top|top|inherit | value | %
+  text-align: center; //center | justify | left | right | start | end
+  outline: none; //remove outline in Mozilla
+  &:hover {
+    background-color: $bgc2;
+  }
+  &:active {
+    background-color: $bgc3;
+  }
+}
+
+@mixin image($height: 100px, $width: 100px, $fit: contain, $position: center) {
+  display: inline-block;
+  object-fit: $fit; //fill -no proportions| contain -The element is scaled to fit the given dimensions and proportions | cover -The element is enlarged or reduced to completely fill the specified area while maintaining proportions | none
+  object-position: $position; //50% 50% | top | inherit | initial | unset
+  //overflow: inherit;
+  width: $width;
+  height: $height;
+}
+@mixin link($color1: black, $color2: red, $boderColor: black) {
+  text-decoration: none; //remove underline
+  border-bottom: 1px solid transparent;
+  color: $color1;
+  transition: border-bottom 0.6s ease;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid $boderColor;
+    color: $color2;
+  }
+}
+@mixin dropdown($bgcColor: rgb(74, 3, 238), $color: white) {
+  padding: 12px 16px;
+  cursor: pointer;
+  &:hover {
+    background-color: $bgcColor;
     color: $color;
+  }
 }
