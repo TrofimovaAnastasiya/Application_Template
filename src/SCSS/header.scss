@@ -34,9 +34,18 @@
 }
 .nav-item__link {
   display: inline-block;
-  margin: 10px;
+  margin: 1px;
   @include text();
   @include link(rgb(64, 65, 68), rgb(74, 3, 238), rgb(74, 3, 238));
+  font-size: 10px;
+  @media (min-width: 750px) {
+    font-size: 30px;
+    margin: 10px;
+  }
+  // @media (max-width: 750px) {
+  //   font-size: 30px;
+  //   margin: 10px;
+  // }
 }
 .nav-item__dropdown {
   display: none;
@@ -47,3 +56,11 @@
 .link-item {
   @include dropdown();
 }
+// @media (max-width: 750px) {
+//   .nav-item__link {
+//     font-size: 30px;
+//     margin: 10px;
+//   }
+// }
+//min-width mobile first
+//max width desktop first
