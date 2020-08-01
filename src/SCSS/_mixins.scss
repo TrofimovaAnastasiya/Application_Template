@@ -1,7 +1,7 @@
 // When adding cursor from file: cursor: url('path to cursor1'), url('path to cursor2'), ..., <keyword>
 @mixin text(
   $font: "Roboto",
-  $size: 30px,
+  $size: 20px,
   $color: rgb(0, 0, 0),
   $weight: 400,
   $text-transform: none //Remove all effects
